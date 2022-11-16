@@ -1,0 +1,13 @@
+
+Q	java:S125/"<This block of commented-out lines of code should be removed.(é¦²¼
+Q	java:S1256"<This block of commented-out lines of code should be removed.(Íº¶Õ
+F
+java:S1128"1Remove this unused import 'iteminformation.Item'.(ÏÁÏ>
+O
+java:S1128"9Remove this unused import 'iteminformation.ItemCategory'.(Œã¬—
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+I
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ
+G
+java:S1144>",Remove this unused private "exitApp" method.(º²Ë‹üÿÿÿÿ
