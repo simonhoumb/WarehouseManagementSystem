@@ -36,8 +36,9 @@ public class WarehouseManagementSystemApp
     public static void main(String[] args)
     {
         WarehouseManagementSystemApp warehouseManagementSystem = new WarehouseManagementSystemApp();
-        warehouseManagementSystem.appInterface.printStartMenu();
-        warehouseManagementSystem.appInterface.printPage(warehouseManagementSystem.userInput.readStartMenuAnswer());
+        warehouseManagementSystem.appInterface.startMenu();
+
+        //bytt ut med switch case, kan lage konstanter for valg
 
         /*
         Kanskje bruk Comparator class for søking

@@ -1,7 +1,5 @@
 package iteminformation;
 
-import java.util.HashMap;
-
 /**
  * Represents an item in a warehouse. Each item
  * holds some information about that specific item.
@@ -11,7 +9,7 @@ import java.util.HashMap;
  */
 public class Item
 {
-    private String itemNumber;
+    private String itemIdNumber;
     private String itemDescription;
     private int itemPrice;
     private String itemBrandName;
@@ -26,16 +24,17 @@ public class Item
      * Creates an item with the specified item number, item price,
      * item brand name and item category.
      *
-     * @param itemNumber    item number for the new item
+     * @param itemIdNumber    item number for the new item
      * @param itemPrice     item price for the new item
      * @param itemBrandName item brand name for the new item
      * @param itemAmountInWarehouse item amount in the warehouse for the new item
      * @param itemCategory  item category for the new item
      */
-    public Item(String itemNumber, int itemPrice, String itemBrandName, int itemAmountInWarehouse,
-                byte itemCategory)
+    public Item(String itemIdNumber,String itemDescription, int itemPrice, String itemBrandName,
+                float itemWeight, float itemLength, float itemWidth, String itemColor,
+                int itemAmountInWarehouse, byte itemCategory)
     {
-        this.itemNumber = itemNumber;
+        this.itemIdNumber = itemIdNumber;
         this.itemPrice = itemPrice;
         this.itemBrandName = itemBrandName;
         this.itemAmountInWarehouse = itemAmountInWarehouse;
@@ -50,9 +49,9 @@ public class Item
      *
      * @return the number of the item as a String.
      */
-    public String getItemNumber()
+    public String getItemIdNumber()
     {
-        return itemNumber;
+        return itemIdNumber;
     }
 
     /**
@@ -61,9 +60,9 @@ public class Item
      *
      * @param newItemNumber the new item number to be set.
      */
-    public void setItemNumber(String newItemNumber)
+    public void setItemIdNumber(String newItemNumber)
     {
-        this.itemNumber = newItemNumber;
+        this.itemIdNumber = newItemNumber;
     }
 
     /**
@@ -264,12 +263,9 @@ public class Item
         this.itemCategory = newItemCategory;
     }
 
-    //Fjern dette (kun til debugging)
-    @Override
-    public String toString()
+    public String getItemInformationAsString()
     {
-        return "Item{" + "\n"
-            + "itemNumber='" + itemNumber + '\'' + "\n"
+        return "itemIdNumber='" + itemIdNumber + '\'' + "\n"
             + "itemDescription='" + itemDescription + '\'' + "\n"
             + "itemPrice=" + itemPrice + "\n"
             + "itemBrandName='" + itemBrandName + '\'' + "\n"
@@ -278,7 +274,6 @@ public class Item
             + "itemWidth=" + itemWidth + "\n"
             + "itemColor='" + itemColor + '\'' + "\n"
             + "itemAmountInWarehouse=" + itemAmountInWarehouse + "\n"
-            + "itemCategory=" + itemCategory + "\n"
-            + '}';
+            + "itemCategory=" + itemCategory;
     }
 }
