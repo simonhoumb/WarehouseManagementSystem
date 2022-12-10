@@ -2,11 +2,11 @@ package utility;
 
 /**
  * Is used to check if a variable is valid.
- * Can be used for Strings, ints and chars,
+ * Can be used for Strings, ints and floats,
  * but also for more specific instances.
  *
  * @author Simon Husås Houmb
- * @version 0.3 (2022-10-26)
+ * @version 1.0 (2022-12-10)
  */
 public class CheckValid
 {
@@ -15,8 +15,8 @@ public class CheckValid
      * or only consists of whitespaces (" "). It then returns
      * true or false (boolean) accordingly.
      *
-     * @param stringToCheck the String to be checked.
-     * @return if the String is valid as boolean.
+     * @param stringToCheck The String to be checked.
+     * @return If the String is valid, as boolean.
      */
     public boolean checkString(String stringToCheck)
     {
@@ -24,42 +24,55 @@ public class CheckValid
     }
 
     /**
-     * Checks if the character is valid. It is not valid if it
-     * is empty. It then returns true or false (boolean)
-     * accordingly.
+     * Checks if the string is valid. It is not valid if it is empty
+     * or only consists of whitespaces (" ") and it can only consist of letters.
+     * It then returns true or false (boolean) accordingly.
      *
-     * @param charToCheck the character (char) to be checked.
-     * @return if the char is valid as boolean.
+     * @param stringToCheck The String to be checked.
+     * @return If the String is valid, as a boolean.
      */
-    public boolean checkChar(char charToCheck)
+    public boolean checkStringOnlyLetters(String stringToCheck)
     {
-        return (charToCheck != ' ');
+        //https://stackoverflow.com/questions/5238491/check-if-string-contains-only-letters <-fjern
+        return (!stringToCheck.isEmpty() && !stringToCheck.isBlank())
+            && stringToCheck.matches("[a-zA-Z]+");
     }
 
     /**
-     * Checks if the number (int) is valid. It is not valid if it
+     * Checks if the whole number (int) is valid. It is not valid if it
      * is less than zero. It then returns true or false (boolean)
      * accordingly.
      *
-     * @param intToCheck the int to be checked.
-     * @return if the int is valid as a boolean.
+     * @param intToCheck The int to be checked.
+     * @return If the int is valid, as a boolean.
      */
-    public boolean checkIntPositive(int intToCheck)
+    public boolean checkIfIntPositive(int intToCheck)
     {
         return (intToCheck >= 0);
     }
 
     /**
-     * Checks if the start menu answer is valid. The answer
-     * is a whole number (int). It is not valid if it is less than 1
-     * and more than 8. It then returns true or false (boolean)
+     * Checks if the decimal number (float) is valid. It is not valid if it is less than zero.
+     * It then returns true or false (boolean) accordingly.
+     *
+     * @param floatToCheck The float to be checked.
+     * @return If the float is valid, as a boolean.
+     */
+    public boolean checkIfFloatPositive(float floatToCheck)
+    {
+        return (floatToCheck >= 0);
+    }
+
+    /**
+     * Checks if the category answer is valid. The answer is a whole number (int). It is not
+     * valid if it is less than 1 and more than 4. It then returns true or false (boolean)
      * accordingly.
      *
-     * @param answerToCheck the answer (int) to be checked.
-     * @return if the answer is valid as a boolean.
+     * @param answerToCheck The answer (int) to be checked.
+     * @return If the answer (int) is valid, as a boolean.
      */
-    public boolean checkStartMenuAnswer(int answerToCheck)
+    public boolean checkCategoryAnswer(int answerToCheck)
     {
-        return (answerToCheck >= 1 && answerToCheck <= 8);
+        return (answerToCheck >= 1 && answerToCheck <= 4);
     }
 }

@@ -5,7 +5,7 @@ package iteminformation;
  * holds some information about that specific item.
  *
  * @author Simon Husås Houmb
- * @version 0.3 (2022-10-19)
+ * @version 1.0 (2022-12-10)
  */
 public class Item
 {
@@ -18,25 +18,36 @@ public class Item
     private float itemWidth;
     private String itemColor;
     private int itemAmountInWarehouse;
-    private byte itemCategory;
+    private Integer itemCategory;
 
     /**
-     * Creates an item with the specified item number, item price,
-     * item brand name and item category.
+     * Creates an item with the specified item number, item description, item price,
+     * item brand name, item weight, item length, item width, item color, item amount
+     * and item category.
      *
-     * @param itemIdNumber    item number for the new item
-     * @param itemPrice     item price for the new item
-     * @param itemBrandName item brand name for the new item
-     * @param itemAmountInWarehouse item amount in the warehouse for the new item
-     * @param itemCategory  item category for the new item
+     * @param itemIdNumber number for the new item
+     * @param itemDescription description of the new item
+     * @param itemPrice price of the new item
+     * @param itemBrandName brand name of the new item
+     * @param itemWeight weight of the new item
+     * @param itemLength length of the new item
+     * @param itemWidth width of the new item
+     * @param itemColor color of the new item
+     * @param itemAmountInWarehouse amount in the warehouse for the new item
+     * @param itemCategory category for the new item
      */
-    public Item(String itemIdNumber,String itemDescription, int itemPrice, String itemBrandName,
+    public Item(String itemIdNumber, String itemDescription, int itemPrice, String itemBrandName,
                 float itemWeight, float itemLength, float itemWidth, String itemColor,
-                int itemAmountInWarehouse, byte itemCategory)
+                int itemAmountInWarehouse, Integer itemCategory)
     {
         this.itemIdNumber = itemIdNumber;
+        this.itemDescription = itemDescription;
         this.itemPrice = itemPrice;
         this.itemBrandName = itemBrandName;
+        this.itemWeight = itemWeight;
+        this.itemLength = itemLength;
+        this.itemWidth = itemWidth;
+        this.itemColor = itemColor;
         this.itemAmountInWarehouse = itemAmountInWarehouse;
         this.itemCategory = itemCategory;
     }
@@ -242,12 +253,31 @@ public class Item
     }
 
     /**
-     * Returns the category of an item as a text
-     * (String).
+     * Increases the amount of an item in the warehouse.
      *
-     * @return the category of an item as a String.
+     * @param amountToAdd The amount of an item to be added to the warehouse.
      */
-    public byte getItemCategory()
+    public void increaseItemAmountInWarehouse(int amountToAdd)
+    {
+        this.itemAmountInWarehouse += amountToAdd;
+    }
+
+    /**
+     * Decreases the amount of an item in the warehouse.
+     *
+     * @param amountToSubtract The amount of an item to be subtracted from the warehouse.
+     */
+    public void decreaseItemAmountInWarehouse(int amountToSubtract)
+    {
+        this.itemAmountInWarehouse -= amountToSubtract;
+    }
+
+    /**
+     * Returns the category of an item.
+     *
+     * @return the category of an item as an Integer.
+     */
+    public Integer getItemCategory()
     {
         return itemCategory;
     }
@@ -258,22 +288,8 @@ public class Item
      *
      * @param newItemCategory the new category to be set.
      */
-    public void setItemCategory(byte newItemCategory)
+    public void setItemCategory(Integer newItemCategory)
     {
         this.itemCategory = newItemCategory;
-    }
-
-    public String getItemInformationAsString()
-    {
-        return "itemIdNumber='" + itemIdNumber + '\'' + "\n"
-            + "itemDescription='" + itemDescription + '\'' + "\n"
-            + "itemPrice=" + itemPrice + "\n"
-            + "itemBrandName='" + itemBrandName + '\'' + "\n"
-            + "itemWeight=" + itemWeight + "\n"
-            + "itemLength=" + itemLength + "\n"
-            + "itemWidth=" + itemWidth + "\n"
-            + "itemColor='" + itemColor + '\'' + "\n"
-            + "itemAmountInWarehouse=" + itemAmountInWarehouse + "\n"
-            + "itemCategory=" + itemCategory;
     }
 }

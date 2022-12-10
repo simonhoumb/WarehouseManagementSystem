@@ -1,49 +1,80 @@
 package iteminformation;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 /**
- * Represents a register of all the items in the warehouse.
+ * Represents an inventory of all the items in the warehouse.
+ *
+ * @author Simon Husås Houmb
+ * @version 1.0 (2022-12-10)
  */
 public class ItemInventory
 {
     /*
-    * Mulig løsning på register: Hashmap m/ kategorier som keys
-    * og arraylist som verdier. Arraylistene inneholder varer.
-    * https://stackoverflow.com/questions/12134687/how-to-add-element-into-arraylist-in-hashmap
-    * https://www.javatpoint.com/java-lambda-expressions
-    * Kan kanskje leses fra listen med stream.
-     */
-    /*
-    private ArrayList<Item> listOfFloorLaminateItems;
-    private ArrayList<Item> listOfWindowItems;
-    private ArrayList<Item> listOfDoorItems;
-    private ArrayList<Item> listOfLumberItems;
+    * https://www.javatpoint.com/java-lambda-expressions <-fjern
     */
 
-    private TreeSet<Item> listOfFloorLaminateItems;
-    private TreeSet<Item> listOfWindowItems;
-    private TreeSet<Item> listOfDoorItems;
-    private TreeSet<Item> listOfLumberItems;
+    private TreeMap<String, Item> inventory;
 
-    private TreeMap<Integer, ArrayList<Item>> inventory;
-
-    // Se på bluej chapter 5 music-organizer
+    /**
+     * Creates an instance of the ItemInventory.
+     */
     public ItemInventory()
     {
-        /*
-        listOfFloorLaminateItems = new ArrayList<>();
-        listOfWindowItems = new ArrayList<>();
-        listOfDoorItems = new ArrayList<>();
-        listOfLumberItems = new ArrayList<>();
-        */
-
-        inventory = new TreeMap<>();
-
+        this.inventory = new TreeMap<>();
     }
 
+    /**
+     * Adds an Item to the ItemInventory.
+     *
+     * @param itemToAdd The Item to be added to the ItemInventory.
+     */
+    public void addItemToInventory(Item itemToAdd)
+    {
+        inventory.put(itemToAdd.getItemIdNumber(), itemToAdd);
+    }
+
+    /**
+     * Removes an Item from the ItemInventory.
+     *
+     * @param itemIdOfItemToRemove The Item to be removed from the ItemInventory.
+     */
+    public void removeItemFromInventory(String itemIdOfItemToRemove)
+    {
+        inventory.remove(itemIdOfItemToRemove);
+    }
+
+    /**
+     * Returns the ItemInventory.
+     *
+     * @return A TreeMap of the ItemInventory.
+     */
+    public TreeMap<String, Item> getInventory()
+    {
+        return this.inventory;
+    }
+
+    /**
+     * Returns an Iterator to iterate over the ItemInventory.
+     *
+     * @return An Iterator that iterates over the ItemInventory.
+     */
+    public Iterator<Item> getInventoryIterator()
+    {
+        return this.inventory.values().iterator();
+    }
+
+    /**
+     * Checks if the ItemInventory already contains a given itemId.
+     *
+     * @param itemId The itemId to check.
+     * @return If the given itemId already exists in the ItemInventory, as a boolean.
+     */
+    public boolean containsItem(String itemId)
+    {
+        return (this.inventory.containsKey(itemId));
+    }
 }
 
 

@@ -1,13 +1,0 @@
-
-V	java:S125"<This block of commented-out lines of code should be removed.(ñöÑêşÿÿÿÿ
-V	java:S125%"<This block of commented-out lines of code should be removed.(éĞ¶şÿÿÿÿÿ
-W
-java:S1068"<Remove this unused "listOfFloorLaminateItems" private field.(ÊÜÛşÿÿÿÿ
-P
-java:S1068"5Remove this unused "listOfWindowItems" private field.(Ş©šáşÿÿÿÿ
-I
-java:S1068"3Remove this unused "listOfDoorItems" private field.(ïÔÊ—
-K
-java:S1068"5Remove this unused "listOfLumberItems" private field.(ãßƒ
-C
-java:S1068"-Remove this unused "inventory" private field.(ôÄß
